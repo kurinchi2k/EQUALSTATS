@@ -1,7 +1,7 @@
 Package: EQUALSTATS
 Title: Algorithm Driven Statistical Analysis for Researchers without Coding Skills
-Version: 0.5.0
-Date: 2024-09-11
+Version: 0.5.1
+Date: 2025-08-22
 Authors@R: person("Kurinchi", "Gurusamy", role = c("aut", "cre"), email = "k.gurusamy@ucl.ac.uk")
 Author: Kurinchi Gurusamy [aut, cre]
 Maintainer: Kurinchi Gurusamy <k.gurusamy@ucl.ac.uk>
@@ -11,4 +11,4 @@ Description: Support functions for R-based 'EQUAL-STATS' software which automati
 License: GPL (>= 3)
 Encoding: UTF-8
 URL: https://sites.google.com/view/equal-group/home
-Note: This update fixes bugs in function.Create_Plots, function.Diagnostic_Accuracy_Tables, and function.Sample_Size_Calculations_Primary, when typos and non-entries caused errors in results.
+Note: This update was performed to align with a planned ggplot2 update

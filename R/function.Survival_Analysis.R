@@ -94,7 +94,7 @@ function.Survival_Analysis <- function(Predefined_lists, rv){
       )
       colnames(data) <- c("status", "time", "group")
       plot_title <- paste0(rv$entry[[1]], " (by ", rv$entry[[3]], ")")
-      survival_plot <- ggsurvfit(survfit2(Surv(time, status) ~ 1 + group, data = data), linetype_aes = TRUE) + labs(title = plot_title, x = "Follow-up time", y = paste0("Probability of no '", rv$entry[[1]],"'")) + add_censor_mark() + add_confidence_interval(alpha=0.1) + scale_ggsurvfit() + add_risktable() + theme_classic() + theme(legend.position = "bottom")
+      survival_plot <- ggsurvfit(survfit2(Surv(time, status) ~ 1 + group, data = data), linetype_aes = TRUE) + labs(title = plot_title, x = "Follow-up time", y = paste0("Probability of no '", rv$entry[[1]],"'")) + add_censor_mark() + add_confidence_interval(alpha=0.1) + scale_ggsurvfit() + theme_classic() + theme(legend.position = "bottom")
     } else {
       results_display <- data.frame(
         `Analysis number` = paste0("AN",formatC((length(rv$plan) + 1), width = 4, format = "d", flag = 0)),
@@ -106,7 +106,7 @@ function.Survival_Analysis <- function(Predefined_lists, rv){
       )
       colnames(data) <- c("status", "time")
       plot_title <- rv$entry[[1]]
-      survival_plot <- ggsurvfit(survfit2(Surv(time, status) ~ 1, data = data)) + labs(title = plot_title, x = "Follow-up time", y = paste0("Probability of no '", rv$entry[[1]],"'")) + add_censor_mark() + add_confidence_interval(alpha=0.1) + scale_ggsurvfit() + add_risktable() + theme_classic()
+      survival_plot <- ggsurvfit(survfit2(Surv(time, status) ~ 1, data = data)) + labs(title = plot_title, x = "Follow-up time", y = paste0("Probability of no '", rv$entry[[1]],"'")) + add_censor_mark() + add_confidence_interval(alpha=0.1) + scale_ggsurvfit() + theme_classic()
     }
     # Plots
     suppressWarnings(suppressMessages(ggsave(filename = paste0(rv$StorageFolder,'/AN', formatC((length(rv$plan) + 1), width = 4, format = "d", flag = 0), '_', substr(str_replace_all(plot_title, "[^[:alnum:]]","_"), 1, 80) ,'KM_plot.png'), plot = survival_plot)))
